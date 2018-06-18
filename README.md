@@ -1,4 +1,4 @@
-# SuperGlowingLoader <img alt="App Icon" src="https://github.com/surahul/SuperGlowingLoader/blob/master/assets/web_198.png" height="40"/> 
+# SuperGlowingLoader ![app_icon](assets/web_40.png)
 
 
 
