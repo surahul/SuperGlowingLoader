@@ -14,9 +14,10 @@ A completely customisable and beautiful indeterminate Progress View for Android.
 </br>
 </br>
 
-<img alt="screen shot 1" src="assets/screenshot_1.gif" height="617" width="300"/><img alt="screen shot 2" src="assets/screenshot_2.gif" height="617" width="300"/><img alt="screen shot 3" src="assets/screenshot_3.gif" height="617" width="300"/>
-
 #### The library lets you control almost every aspect of the loader animation. I've designed the demo app to let others play with all the customizations possible in the animation  
+
+
+![controls screenshot](assets/screenshot_1_small.gif) &nbsp; ![screen shot 2](assets/screenshot_2_small.gif)
 
 
 ## Usage
