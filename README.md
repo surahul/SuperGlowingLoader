@@ -7,7 +7,6 @@ A completely customisable and beautiful indeterminate Progress View for Android.
 [![platform](https://img.shields.io/badge/platform-Android-yellow.svg)](https://www.android.com)
 [![License](https://img.shields.io/badge/license-Apache%202-4EB1BA.svg?style=flat-square)](https://www.apache.org/licenses/LICENSE-2.0.html)
 
-
 **[DOWNLOAD DEMO APK](assets/Super%20GLowing%20Loader%20Demo.apk)**
 
 ![Showcase Video](assets/main_cover.gif)
@@ -16,9 +15,15 @@ A completely customisable and beautiful indeterminate Progress View for Android.
 </br>
 
 
+|                                                    |                                                            |
+|    -----------------------------------------       |     ----------------------------------------------         |
+|<img alt="screenshot_1" src="assets/screenshot_1.gif" height="700px"/> | <img alt="screenshot_1" src="assets/screenshot_2.gif" height="700px"/> 
+
+
+
 |                                                |  The Demo App in Action|
 | -------------                                  | -------------          |
-| ![Customized One](assets/demo_app_preview.gif) |  The library lets you control almost every aspect of the loader animation.</br> I've designed the demo app to let others play with all the customizations possible in the animation.</br> [Download the Demo apk](assets/Super%20GLowing%20Loader%20Demo.apk) to design a completely unique loader    
+| ![Customized One](assets/demo_app_preview.gif) |  The library lets you control almost every aspect of the loader animation.</br> I've designed the demo app to let others play with all the customizations possible in the animation.</br> [Download the Demo apk](assets/Super%20GLowing%20Loader%20Demo.apk) to design a completely unique loader   
 
 
 ## Usage
