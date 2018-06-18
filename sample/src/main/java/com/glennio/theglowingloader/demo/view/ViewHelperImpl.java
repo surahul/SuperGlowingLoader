@@ -88,12 +88,11 @@ public class ViewHelperImpl implements ViewHelper, View.OnClickListener {
             }
         });
 
-//        setFullScreen();
     }
 
     private void setUpLayoutParams() {
         float screenHeight = Utils.getScreenHeight(getContext());
-        float minControlPanelHeight = screenHeight *   .55f;
+        float minControlPanelHeight = screenHeight *   .65f;
         controlsPanel.getLayoutParams().height = (int) minControlPanelHeight;
         controlsPanel.setLayoutParams(controlsPanel.getLayoutParams());
     }

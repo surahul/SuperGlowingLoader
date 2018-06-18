@@ -511,4 +511,5 @@ public class GlowingLoaderView extends View implements BaseDrawerCallback, LineP
         this.particleTypes = particleTypes;
         invalidateBlurMasks();
     }
+
 }
