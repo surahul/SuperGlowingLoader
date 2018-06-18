@@ -20,8 +20,14 @@ public interface Constants {
             new LineSpec(
                     0,
                     Utils.dpToPx(70),
-                    0XFFEA4E5A,
+                    0XFFE91E63,
                     650
+            ),
+            new LineSpec(
+                    0,
+                    Utils.dpToPx(50),
+                    0XFF1DE9B6,
+                    860
             )
     };
 
@@ -29,15 +35,15 @@ public interface Constants {
     boolean DEFAULT_SHOW_RIPPLE_GLOW_SHADOW = true;
     boolean DEFAULT_SHOW_PARTICLE_GLOW_SHADOW = false;
     int DEFAULT_GLOW_SHADOW_DX = 0;
-    int DEFAULT_GLOW_SHADOW_DY = Utils.dpToPx(40);
-    float DEFAULT_GLOW_SHADOW_SIZE = .75f;
-    float DEFAULT_GLOW_SHADOW_SPREAD = .6f;
+    int DEFAULT_GLOW_SHADOW_DY = Utils.dpToPx(06);
+    float DEFAULT_GLOW_SHADOW_SIZE = .92f;
+    float DEFAULT_GLOW_SHADOW_SPREAD = .25f;
     float DEFAULT_GLOW_SHADOW_ALPHA = .14f;
 
 
     // line default properties
     long DEFAULT_DURATION = 1400;
-    float DEFAULT_ASPECT = 2.5f;
+    float DEFAULT_ASPECT = 2.4f;
     int DEFAULT_LINE_STROKE_WIDTH = Utils.dpToPx(10);
 
 
@@ -72,8 +78,8 @@ public interface Constants {
 
     // ripple default properties
     long DEFAULT_RIPPLE_DURATION = 1100;
-    int DEFAULT_MIN_RIPPLE_RADIUS = Utils.dpToPx(40);
-    int DEFAULT_MAX_RIPPLE_RADIUS = Utils.dpToPx(60);
+    int DEFAULT_MIN_RIPPLE_RADIUS = Utils.dpToPx(50);
+    int DEFAULT_MAX_RIPPLE_RADIUS = Utils.dpToPx(70);
     int DEFAULT_MIN_RIPPLE_STROKE_WIDTH = Utils.dpToPx(9);
     int DEFAULT_MAX_RIPPLE_STROKE_WIDTH = Utils.dpToPx(12);
     int DEFAULT_RIPPLE_COLOR = Color.WHITE;
