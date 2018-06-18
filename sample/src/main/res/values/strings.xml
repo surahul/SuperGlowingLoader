@@ -1,0 +1,29 @@
+<resources>
+    <string name="app_name">Super Glowing Loader</string>
+
+    <string name="title_activity_demo">Super Glowing Loader</string>
+    <string name="show_line_glow_shadow">Show Line Glow Shadow</string>
+    <string name="show_ripple_glow_shadow">Show Ripple Glow Shadow</string>
+    <string name="show_particle_glow_shadow">Show Particles Glow Shadow</string>
+    <string name="glow_shadow_delta_y">Glow Shadow Translation Y</string>
+    <string name="glow_shadow_delta_x">Glow Shadow Translation X</string>
+    <string name="glow_shadow_size">Glow Shadow Size</string>
+    <string name="glow_shadow_spread">Glow Shadow Spread</string>
+    <string name="glow_shadow_opacity">Glow Shadow Opacity</string>
+    <string name="animation_duration">Animation Duration</string>
+    <string name="aspect_ratio">Aspect Ratio</string>
+    <string name="stroke_width">Line Stroke Width</string>
+    <string name="particle_colors">Particle Colors</string>
+    <string name="ripple_color">Ripple Color</string>
+    <string name="particles_opacity">Particles Opacity</string>
+    <string name="particles_size">Particles Size</string>
+    <string name="particles_count">Particles Count</string>
+    <string name="ripple_opacity">Ripple Opacity</string>
+    <string name="ripple_stroke_width">Ripple Stroke Width</string>
+    <string name="ripple_size">Ripple Size</string>
+    <string name="ripple_duration">Ripple Duration</string>
+    <string name="particles_scattering_distance">Particles Scattering Distance</string>
+    <string name="particles_rotation">Particles Rotation</string>
+    <string name="lines_customizations">Lines</string>
+    <string name="scroll_tooltop_content">Scroll Down For all customisations</string>
+</resources>

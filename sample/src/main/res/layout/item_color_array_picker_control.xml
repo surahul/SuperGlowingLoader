@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/text_view"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/control_items_padding"
+        android:layout_marginStart="@dimen/control_items_padding"
+        android:layout_marginTop="@dimen/control_items_padding"
+        android:fontFamily="sans-serif-condensed"
+        android:textColor="?android:attr/textColorPrimary"
+        android:textSize="@dimen/control_items_text_size_a"
+        app:layout_constraintEnd_toStartOf="@+id/value_tv"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/value_tv"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Simple Seekbar control" />
+
+    <TextView
+        android:id="@+id/value_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/control_items_padding"
+        android:layout_marginRight="@dimen/control_items_padding"
+        android:fontFamily="sans-serif-condensed"
+        android:textColor="?android:attr/textColorPrimary"
+        android:textSize="@dimen/control_items_text_size_a"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/text_view"
+        tools:text="50 dp" />
+
+    <ImageView
+        android:id="@+id/remove"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginStart="10dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:clickable="true"
+        android:padding="6dp"
+        app:layout_constraintBottom_toBottomOf="@+id/color_array"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/color_array"
+        app:srcCompat="@drawable/ic_remove" />
+
+    <com.glennio.theglowingloader.demo.view.custom.ColorArrayDisplayerView
+        android:id="@+id/color_array"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        android:layout_margin="10dp"
+        app:layout_constraintEnd_toStartOf="@+id/add"
+        app:layout_constraintLeft_toRightOf="@+id/remove"
+        app:layout_constraintRight_toLeftOf="@+id/add"
+        app:layout_constraintStart_toEndOf="@+id/remove"
+        app:layout_constraintTop_toBottomOf="@+id/text_view" />
+
+    <ImageView
+        android:id="@+id/add"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginRight="10dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:clickable="true"
+        android:padding="6dp"
+        app:layout_constraintBottom_toBottomOf="@+id/color_array"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/color_array"
+        app:srcCompat="@drawable/ic_add" />
+
+
+</android.support.constraint.ConstraintLayout>
