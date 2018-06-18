@@ -14,16 +14,9 @@ A completely customisable and beautiful indeterminate Progress View for Android.
 </br>
 </br>
 
+![screen_shot_1](assets/screenshot_1.gif) ![screen_shot_2](assets/screenshot_2.gif) ![screen_shot_3](assets/screenshot_3.gif)
 
-|                                                    |                                                            |
-|    -----------------------------------------       |     ----------------------------------------------         |
-|<img alt="screenshot_1" src="assets/screenshot_1.gif" height="700px"/> | <img alt="screenshot_1" src="assets/screenshot_2.gif" height="700px"/> 
-
-
-
-|                                                |  The Demo App in Action|
-| -------------                                  | -------------          |
-| ![Customized One](assets/demo_app_preview.gif) |  The library lets you control almost every aspect of the loader animation.</br> I've designed the demo app to let others play with all the customizations possible in the animation.</br> [Download the Demo apk](assets/Super%20GLowing%20Loader%20Demo.apk) to design a completely unique loader   
+#### The library lets you control almost every aspect of the loader animation. I've designed the demo app to let others play with all the customizations possible in the animation  
 
 
 ## Usage
