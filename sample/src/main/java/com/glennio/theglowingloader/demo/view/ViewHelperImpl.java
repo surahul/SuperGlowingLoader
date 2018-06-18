@@ -202,7 +202,7 @@ public class ViewHelperImpl implements ViewHelper, View.OnClickListener {
         glowingLoaderView.setLayoutParams(glowingLoaderView.getLayoutParams());
     }
 
-    private void setFullScreen() {
+    public void setFullScreen() {
         root.setSystemUiVisibility(View.SYSTEM_UI_FLAG_LOW_PROFILE
                 | View.SYSTEM_UI_FLAG_FULLSCREEN
                 | View.SYSTEM_UI_FLAG_LAYOUT_STABLE
@@ -214,5 +214,10 @@ public class ViewHelperImpl implements ViewHelper, View.OnClickListener {
     @Override
     public GlowingLoaderView getGlowLoaderView() {
         return glowingLoaderView;
+    }
+
+    @Override
+    public void onResume() {
+//        setFullScreen();
     }
 }

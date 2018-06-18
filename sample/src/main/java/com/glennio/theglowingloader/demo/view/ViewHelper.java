@@ -10,4 +10,6 @@ public interface ViewHelper {
     Context getContext();
 
     GlowingLoaderView getGlowLoaderView();
+
+    void onResume();
 }

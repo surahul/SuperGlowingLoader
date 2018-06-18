@@ -29,4 +29,10 @@ public class DemoActivity extends AppCompatActivity {
 
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if(viewHelper!=null)
+            viewHelper.onResume();
+    }
 }
