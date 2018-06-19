@@ -48,6 +48,7 @@ public class PresenterImpl implements Presenter {
     private static final int ID_PARTICLE_TRANSLATION = 21;
     private static final int ID_PARTICLE_ROTATION = 22;
     private static final int ID_LINES_CUSTOMIZATION = 22;
+    private static final int ID_BACKGROUND_COLOR = 23;
 
 
     private int[] colorsForRandomPicking = new int[]{
@@ -74,6 +75,21 @@ public class PresenterImpl implements Presenter {
             0XFF90A4AE,
             0XFF7e3ff2,
 
+    };
+
+    private int[] colorForBackground = new int[]{
+            Color.WHITE,
+            0XFFFFEBEE,
+            Color.BLACK,
+            Color.WHITE,
+            0XFF3E2723,
+            0XFFF3E5F5,
+            0XFFa091d,
+            0XFF212121,
+            0XFFa091d,
+            0XFFE0F2F1,
+            0XFFa091d,
+            0XFF263238,
     };
 
     private float[] lineLengths = new float[]{
@@ -129,37 +145,48 @@ public class PresenterImpl implements Presenter {
             defaultLineColors[i] = Constants.DEFAULT_LINE_SPECS[i].getColor();
         }
 
-        ColorArrayPickerViewModel lineColorArrayViewModel = new ColorArrayPickerViewModel(ID_LINES_CUSTOMIZATION, getString(context, R.string.lines_customizations), defaultLineColors);
-        adapterDataItems.add(new AdapterDataItem(lineColorArrayViewModel));
 
-        adapterDataItems.add(new AdapterDataItem(new CheckBoxControlViewModel(ID_SHOW_LINE_GLOW_SHADOW, getString(context, R.string.show_line_glow_shadow), Constants.DEFAULT_SHOW_LINE_GLOW_SHADOW)));
-        adapterDataItems.add(new AdapterDataItem(new CheckBoxControlViewModel(ID_SHOW_RIPPLE_GLOW_SHADOW, getString(context, R.string.show_ripple_glow_shadow), Constants.DEFAULT_SHOW_RIPPLE_GLOW_SHADOW)));
-        adapterDataItems.add(new AdapterDataItem(new CheckBoxControlViewModel(ID_SHOW_PARTICLE_GLOW_SHADOW, getString(context, R.string.show_particle_glow_shadow), Constants.DEFAULT_SHOW_PARTICLE_GLOW_SHADOW)));
-        adapterDataItems.add(new AdapterDataItem(new SimpleSeekBarControlViewModel(ID_GLOW_DX_VALUE, getString(context, R.string.glow_shadow_delta_x), Utils.dpToPx(0), Utils.dpToPx(100), Constants.DEFAULT_GLOW_SHADOW_DX, "%s Pixels")));
-        adapterDataItems.add(new AdapterDataItem(new SimpleSeekBarControlViewModel(ID_GLOW_DY_VALUE, getString(context, R.string.glow_shadow_delta_y), Utils.dpToPx(0), Utils.dpToPx(100), Constants.DEFAULT_GLOW_SHADOW_DY, "%s Pixels")));
+        // line controls
+        adapterDataItems.add(new AdapterDataItem(new ColorArrayPickerViewModel(ID_LINES_CUSTOMIZATION, getString(context, R.string.lines_customizations), defaultLineColors)));
+        adapterDataItems.add(new AdapterDataItem(new SimpleSeekBarControlViewModel(ID_STROKE_WIDTH, getString(context, R.string.stroke_width), Utils.dpToPx(3f), Utils.dpToPx(30f), Constants.DEFAULT_LINE_STROKE_WIDTH, "%s Pixels")));
+        adapterDataItems.add(new AdapterDataItem(new SimpleSeekBarControlViewModel(ID_ASPECT_RATIO, getString(context, R.string.aspect_ratio), .25f, 6f, Constants.DEFAULT_ASPECT)));
+
         adapterDataItems.add(new AdapterDataItem(new SimpleSeekBarControlViewModel(ID_GLOW_SHADOW_SIZE, getString(context, R.string.glow_shadow_size), 0f, 1f, Constants.DEFAULT_GLOW_SHADOW_SIZE)));
         adapterDataItems.add(new AdapterDataItem(new SimpleSeekBarControlViewModel(ID_GLOW_SHADOW_SPREAD, getString(context, R.string.glow_shadow_spread), 0f, 1f, Constants.DEFAULT_GLOW_SHADOW_SPREAD)));
         adapterDataItems.add(new AdapterDataItem(new SimpleSeekBarControlViewModel(ID_GLOW_SHADOW_ALPHA, getString(context, R.string.glow_shadow_opacity), 0f, .7f, Constants.DEFAULT_GLOW_SHADOW_ALPHA)));
+        adapterDataItems.add(new AdapterDataItem(new SimpleSeekBarControlViewModel(ID_GLOW_DY_VALUE, getString(context, R.string.glow_shadow_delta_y), Utils.dpToPx(0), Utils.dpToPx(100), Constants.DEFAULT_GLOW_SHADOW_DY, "%s Pixels")));
+        adapterDataItems.add(new AdapterDataItem(new SimpleSeekBarControlViewModel(ID_GLOW_DX_VALUE, getString(context, R.string.glow_shadow_delta_x), Utils.dpToPx(0), Utils.dpToPx(100), Constants.DEFAULT_GLOW_SHADOW_DX, "%s Pixels")));
+        adapterDataItems.add(new AdapterDataItem(new CheckBoxControlViewModel(ID_SHOW_LINE_GLOW_SHADOW, getString(context, R.string.show_line_glow_shadow), Constants.DEFAULT_SHOW_LINE_GLOW_SHADOW)));
+        adapterDataItems.add(new AdapterDataItem(new CheckBoxControlViewModel(ID_SHOW_RIPPLE_GLOW_SHADOW, getString(context, R.string.show_ripple_glow_shadow), Constants.DEFAULT_SHOW_RIPPLE_GLOW_SHADOW)));
+        adapterDataItems.add(new AdapterDataItem(new CheckBoxControlViewModel(ID_SHOW_PARTICLE_GLOW_SHADOW, getString(context, R.string.show_particle_glow_shadow), Constants.DEFAULT_SHOW_PARTICLE_GLOW_SHADOW)));
+
         adapterDataItems.add(new AdapterDataItem(new SimpleSeekBarControlViewModel(ID_ANIMATION_DURATION, getString(context, R.string.animation_duration), 800, 2000, (int) Constants.DEFAULT_DURATION, "%s milli sec")));
-        adapterDataItems.add(new AdapterDataItem(new SimpleSeekBarControlViewModel(ID_ASPECT_RATIO, getString(context, R.string.aspect_ratio), .25f, 6f, Constants.DEFAULT_ASPECT)));
-        adapterDataItems.add(new AdapterDataItem(new SimpleSeekBarControlViewModel(ID_STROKE_WIDTH, getString(context, R.string.stroke_width), Utils.dpToPx(3f), Utils.dpToPx(30f), Constants.DEFAULT_LINE_STROKE_WIDTH, "%s Pixels")));
+        adapterDataItems.add(new AdapterDataItem(new SimpleSeekBarControlViewModel(ID_RIPPLE_DURATION, getString(context, R.string.ripple_duration), 300, 2000, (int) Constants.DEFAULT_RIPPLE_DURATION, "%s milli sec")));
+
+
         adapterDataItems.add(new AdapterDataItem(new ColorArrayPickerViewModel(ID_PARTICLE_COLORS, getString(context, R.string.particle_colors), Constants.DEFAULT_PARTICLE_COLORS)));
+        adapterDataItems.add(new AdapterDataItem(new SimpleSeekBarControlViewModel(ID_PARTICLES_SIZE, getString(context, R.string.particles_size), Utils.dpToPx(8), Utils.dpToPx(60), Constants.DEFAULT_MAX_PARTICLE_SIZE, "~ %s Pixels")));
+        adapterDataItems.add(new AdapterDataItem(new SimpleSeekBarControlViewModel(ID_PARTICLES_ALPHA, getString(context, R.string.particles_opacity), .2f, 1f, Constants.DEFAULT_MAX_PARTICLE_ALPHA)));
+        adapterDataItems.add(new AdapterDataItem(new SimpleSeekBarControlViewModel(ID_PARTICLES_COUNT, getString(context, R.string.particles_count), 4, 10, Constants.DEFAULT_MAX_PARTICLE_COUNT, "~ %s Particles")));
+        adapterDataItems.add(new AdapterDataItem(new SimpleSeekBarControlViewModel(ID_PARTICLE_TRANSLATION, getString(context, R.string.particles_scattering_distance), Utils.dpToPx(20), Utils.dpToPx(200), Constants.DEFAULT_MAX_PARTICLE_TRANSLATION, "~ %s Pixels")));
+        adapterDataItems.add(new AdapterDataItem(new SimpleSeekBarControlViewModel(ID_PARTICLE_ROTATION, getString(context, R.string.particles_rotation), 50, 2100, Constants.DEFAULT_MAX_PARTICLE_ROTATION, "~ %s Degrees")));
+
 
         ColorArrayPickerViewModel refreshRippleColorViewModel = new ColorArrayPickerViewModel(ID_RIPPLE_COLOR, getString(context, R.string.ripple_color), Constants.DEFAULT_RIPPLE_COLOR);
         refreshRippleColorViewModel.setShowRightIcon(false);
         refreshRippleColorViewModel.setLeftIconResource(R.drawable.ic_refresh);
         refreshRippleColorViewModel.setShowValueText(false);
         adapterDataItems.add(new AdapterDataItem(refreshRippleColorViewModel));
-
-        adapterDataItems.add(new AdapterDataItem(new SimpleSeekBarControlViewModel(ID_PARTICLES_ALPHA, getString(context, R.string.particles_opacity), .2f, 1f, Constants.DEFAULT_MAX_PARTICLE_ALPHA)));
-        adapterDataItems.add(new AdapterDataItem(new SimpleSeekBarControlViewModel(ID_PARTICLES_SIZE, getString(context, R.string.particles_size), Utils.dpToPx(8), Utils.dpToPx(60), Constants.DEFAULT_MAX_PARTICLE_SIZE, "~ %s Pixels")));
-        adapterDataItems.add(new AdapterDataItem(new SimpleSeekBarControlViewModel(ID_PARTICLES_COUNT, getString(context, R.string.particles_count), 4, 10, Constants.DEFAULT_MAX_PARTICLE_COUNT, "~ %s Particles")));
         adapterDataItems.add(new AdapterDataItem(new SimpleSeekBarControlViewModel(ID_RIPPLE_ALPHA, getString(context, R.string.ripple_opacity), .2f, 1f, Constants.DEFAULT_RIPPLE_ALPHA)));
-        adapterDataItems.add(new AdapterDataItem(new SimpleSeekBarControlViewModel(ID_RIPPLE_STROKE_WIDTH, getString(context, R.string.ripple_stroke_width), Utils.dpToPx(2), Utils.dpToPx(26), Constants.DEFAULT_MAX_RIPPLE_STROKE_WIDTH, "~ %s Pixels")));
         adapterDataItems.add(new AdapterDataItem(new SimpleSeekBarControlViewModel(ID_RIPPLE_SIZE, getString(context, R.string.ripple_size), Utils.dpToPx(30), Utils.dpToPx(120), Constants.DEFAULT_MAX_RIPPLE_RADIUS, "~ %s Pixels")));
-        adapterDataItems.add(new AdapterDataItem(new SimpleSeekBarControlViewModel(ID_RIPPLE_DURATION, getString(context, R.string.ripple_duration), 300, 2000, (int) Constants.DEFAULT_RIPPLE_DURATION, "%s milli sec")));
-        adapterDataItems.add(new AdapterDataItem(new SimpleSeekBarControlViewModel(ID_PARTICLE_TRANSLATION, getString(context, R.string.particles_scattering_distance), Utils.dpToPx(20), Utils.dpToPx(200), Constants.DEFAULT_MAX_PARTICLE_TRANSLATION, "~ %s Pixels")));
-        adapterDataItems.add(new AdapterDataItem(new SimpleSeekBarControlViewModel(ID_PARTICLE_ROTATION, getString(context, R.string.particles_rotation), 50, 2100, Constants.DEFAULT_MAX_PARTICLE_ROTATION, "~ %s Degrees")));
+        adapterDataItems.add(new AdapterDataItem(new SimpleSeekBarControlViewModel(ID_RIPPLE_STROKE_WIDTH, getString(context, R.string.ripple_stroke_width), Utils.dpToPx(2), Utils.dpToPx(26), Constants.DEFAULT_MAX_RIPPLE_STROKE_WIDTH, "~ %s Pixels")));
+
+
+        ColorArrayPickerViewModel refreshBackgroundColor = new ColorArrayPickerViewModel(ID_BACKGROUND_COLOR, getString(context, R.string.backgroundColor), context.getResources().getColor(R.color.colorPrimary));
+        refreshBackgroundColor.setShowRightIcon(false);
+        refreshBackgroundColor.setLeftIconResource(R.drawable.ic_refresh);
+        refreshBackgroundColor.setShowValueText(false);
+        adapterDataItems.add(new AdapterDataItem(refreshBackgroundColor));
 
 
         dataProvider.addItems(adapterDataItems);
@@ -311,6 +338,12 @@ public class PresenterImpl implements Presenter {
                 if (viewHelper != null)
                     viewHelper.getGlowLoaderView().setRippleColor(adapterDataItem.getColorArrayPickerViewModel().getColors()[0]);
                 break;
+            case ID_BACKGROUND_COLOR:
+                adapterDataItem.getColorArrayPickerViewModel().removeColor();
+                adapterDataItem.getColorArrayPickerViewModel().addColor(getNextColor(colorForBackground));
+                if (viewHelper != null)
+                    viewHelper.setBackgroundColor(adapterDataItem.getColorArrayPickerViewModel().getColors()[0]);
+                break;
             case ID_LINES_CUSTOMIZATION:
                 int nextColor = getNextColor();
                 ColorArrayPickerViewModel colorArrayPickerViewModel = adapterDataItem.getColorArrayPickerViewModel();
@@ -348,7 +381,11 @@ public class PresenterImpl implements Presenter {
     }
 
     private int getNextColor() {
-        return com.glennio.glowingloaderlib.Utils.randomInt(random, colorsForRandomPicking);
+        return getNextColor(colorsForRandomPicking);
+    }
+
+    private int getNextColor(int[] colors) {
+        return com.glennio.glowingloaderlib.Utils.randomInt(random, colors);
     }
 
     @Override

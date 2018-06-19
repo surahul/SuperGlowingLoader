@@ -345,8 +345,8 @@ public class GlowingLoaderView extends View implements BaseDrawerCallback, LineP
     public float getLineHeight() {
         int viewWidth = getMeasuredWidth();
         int viewHeight = getMeasuredHeight();
-        float accessableWidth = viewWidth - (maxParticleTranslation + spaceRequiredByBlur(true));
-        float accessableHeight = viewHeight - (maxParticleTranslation + spaceRequiredByBlur(false));
+        float accessableWidth = viewWidth - (Math.min(maxParticleTranslation,Constants.MAX_PARTICLE_TRANSLATION_ACCOUNTED_FOR_SIZE) + spaceRequiredByBlur(true));
+        float accessableHeight = viewHeight - (Math.min(maxParticleTranslation,Constants.MAX_PARTICLE_TRANSLATION_ACCOUNTED_FOR_SIZE) + spaceRequiredByBlur(false));
         if (accessableHeight > 0 && accessableWidth > 0) {
             if (accessableWidth / accessableHeight >= aspect) {
                 // landscape kinda view
@@ -362,8 +362,8 @@ public class GlowingLoaderView extends View implements BaseDrawerCallback, LineP
     public float getLineWidth() {
         int viewWidth = getMeasuredWidth();
         int viewHeight = getMeasuredHeight();
-        float accessableWidth = viewWidth - (maxParticleTranslation + spaceRequiredByBlur(true));
-        float accessableHeight = viewHeight - (maxParticleTranslation + spaceRequiredByBlur(false));
+        float accessableWidth = viewWidth - (Math.min(maxParticleTranslation,Constants.MAX_PARTICLE_TRANSLATION_ACCOUNTED_FOR_SIZE) + spaceRequiredByBlur(true));
+        float accessableHeight = viewHeight - (Math.min(maxParticleTranslation,Constants.MAX_PARTICLE_TRANSLATION_ACCOUNTED_FOR_SIZE) + spaceRequiredByBlur(false));
         if (accessableHeight > 0 && accessableWidth > 0) {
             if (accessableWidth / accessableHeight >= aspect) {
                 // landscape kinda view

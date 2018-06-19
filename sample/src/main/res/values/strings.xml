@@ -26,4 +26,5 @@
     <string name="particles_rotation">Particles Rotation</string>
     <string name="lines_customizations">Lines</string>
     <string name="scroll_tooltop_content">Scroll Down For all customisations</string>
+    <string name="backgroundColor">Background Color</string>
 </resources>

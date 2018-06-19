@@ -1,5 +1,6 @@
 package com.glennio.theglowingloader.demo;
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -11,7 +12,7 @@ import com.glennio.theglowingloader.demo.view.ViewHelper;
 import com.glennio.theglowingloader.demo.view.ViewHelperImpl;
 
 
-public class DemoActivity extends AppCompatActivity {
+public class DemoActivity extends AppCompatActivity implements ViewHelper.Callback{
 
     private ViewHelper viewHelper;
     private Presenter presenter;
@@ -24,9 +25,14 @@ public class DemoActivity extends AppCompatActivity {
 
         View contentView = findViewById(android.R.id.content);
         presenter = new PresenterImpl(this);
-        viewHelper = new ViewHelperImpl(contentView, presenter);
+        viewHelper = new ViewHelperImpl(contentView, presenter,this);
         presenter.setViewHelper(viewHelper);
 
+    }
+
+    @Override
+    public Activity getActivity() {
+        return this;
     }
 
     @Override

@@ -1,7 +1,9 @@
 package com.glennio.theglowingloader.demo.view;
 
+import android.app.Activity;
 import android.content.Context;
 import android.graphics.Rect;
+import android.graphics.drawable.ColorDrawable;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomSheetBehavior;
 import android.support.v7.widget.DividerItemDecoration;
@@ -11,6 +13,7 @@ import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
+import android.view.Window;
 
 import com.glennio.glowingloaderlib.GlowingLoaderView;
 import com.glennio.theglowingloader.R;
@@ -47,14 +50,18 @@ public class ViewHelperImpl implements ViewHelper, View.OnClickListener {
     private UserLockBottomSheetBehavior controlPanelBottomSheetBehavior;
 
 
-    public ViewHelperImpl(View root, Presenter presenter) {
+    private Callback callback;
+
+
+    public ViewHelperImpl(View root, Presenter presenter, Callback callback) {
         this.root = root;
         this.presenter = presenter;
+        this.callback = callback;
         this.recyclerView = root.findViewById(R.id.controls_recycler_view);
 
 
         this.adapter = new Adapter(presenter.getAdapterDataProvider(), checkBoxControlViewCallback, colorArrayControlViewCallback, lineManagerControlViewCallback, minMaxSeekBarControlViewCallack, simpleSeekBarControlViewCallback);
-        this.layoutManager = new LinearLayoutManager(root.getContext());
+        this.layoutManager = new LinearLayoutManager(getContext());
         this.recyclerView.setLayoutManager(layoutManager);
         this.recyclerView.setAdapter(adapter);
         this.recyclerView.setItemAnimator(null);
@@ -92,14 +99,14 @@ public class ViewHelperImpl implements ViewHelper, View.OnClickListener {
 
     private void setUpLayoutParams() {
         float screenHeight = Utils.getScreenHeight(getContext());
-        float minControlPanelHeight = screenHeight *   .65f;
+        float minControlPanelHeight = screenHeight * .65f;
         controlsPanel.getLayoutParams().height = (int) minControlPanelHeight;
         controlsPanel.setLayoutParams(controlsPanel.getLayoutParams());
     }
 
     @Override
     public Context getContext() {
-        return root.getContext();
+        return callback != null && callback.getActivity() != null ? callback.getActivity().getApplicationContext() : null;
     }
 
     private CheckBoxControlViewHolder.CheckBoxControlViewCallback checkBoxControlViewCallback = new CheckBoxControlViewHolder.CheckBoxControlViewCallback() {
@@ -168,25 +175,27 @@ public class ViewHelperImpl implements ViewHelper, View.OnClickListener {
     };
 
     private void checkAndShowScrollDownTooltip() {
-        Tooltip tooltip = new Tooltip.Builder(getContext())
-                .setAnchorView(null)
-                .setAutoHideDuration(7000)
-                .setContainerViewGroup(tooltipContainer)
-                .setContent(getContext().getString(R.string.scroll_tooltop_content))
-                .setColor(getContext().getResources().getColor(R.color.colorAccent))
-                .setGravityInContainer(Gravity.BOTTOM | Gravity.CENTER)
-                .setMinOffsetFromEdge(Utils.dpToPx(16))
-                .setDefaultAlignment(Alignment.DOWN)
-                .setCloseIconResource(R.drawable.ic_down)
-                .build();
-        TooltipBackgroundShape tooltipBackgroundShape = tooltip.getTooltipView().getTooltipBackgroundShape();
-        tooltipBackgroundShape.setCornerRadius(Utils.dpToPx(30));
-        tooltipBackgroundShape.setArrowSize(0, 0);
-        int padding = Utils.dpToPx(10);
-        tooltipBackgroundShape.setPadding(new Rect(padding, padding, padding, padding));
-        new TooltipShowcase.Builder(getContext(), tooltip)
-                .setSingleUse(SHOWCASE_ID_SCROLL_TOOLTIP)
-                .show();
+        if(callback!=null){
+            Tooltip tooltip = new Tooltip.Builder(callback.getActivity())
+                    .setAnchorView(null)
+                    .setAutoHideDuration(7000)
+                    .setContainerViewGroup(tooltipContainer)
+                    .setContent(getContext().getString(R.string.scroll_tooltop_content))
+                    .setColor(getContext().getResources().getColor(R.color.colorAccent))
+                    .setGravityInContainer(Gravity.BOTTOM | Gravity.CENTER)
+                    .setMinOffsetFromEdge(Utils.dpToPx(16))
+                    .setDefaultAlignment(Alignment.DOWN)
+                    .setCloseIconResource(R.drawable.ic_down)
+                    .build();
+            TooltipBackgroundShape tooltipBackgroundShape = tooltip.getTooltipView().getTooltipBackgroundShape();
+            tooltipBackgroundShape.setCornerRadius(Utils.dpToPx(30));
+            tooltipBackgroundShape.setArrowSize(0, 0);
+            int padding = Utils.dpToPx(10);
+            tooltipBackgroundShape.setPadding(new Rect(padding, padding, padding, padding));
+            new TooltipShowcase.Builder(callback.getActivity(), tooltip)
+                    .setSingleUse(SHOWCASE_ID_SCROLL_TOOLTIP)
+                    .show();
+        }
     }
 
     @Override
@@ -213,6 +222,18 @@ public class ViewHelperImpl implements ViewHelper, View.OnClickListener {
     @Override
     public GlowingLoaderView getGlowLoaderView() {
         return glowingLoaderView;
+    }
+
+    @Override
+    public void setBackgroundColor(int color) {
+        if (callback != null) {
+            Activity activity = callback.getActivity();
+            if (activity != null) {
+                Window window = activity.getWindow();
+                if (window != null)
+                    window.setBackgroundDrawable(new ColorDrawable(color));
+            }
+        }
     }
 
     @Override

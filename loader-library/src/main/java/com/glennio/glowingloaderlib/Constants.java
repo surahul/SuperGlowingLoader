@@ -35,7 +35,7 @@ public interface Constants {
     boolean DEFAULT_SHOW_RIPPLE_GLOW_SHADOW = true;
     boolean DEFAULT_SHOW_PARTICLE_GLOW_SHADOW = false;
     int DEFAULT_GLOW_SHADOW_DX = 0;
-    int DEFAULT_GLOW_SHADOW_DY = Utils.dpToPx(06);
+    int DEFAULT_GLOW_SHADOW_DY = Utils.dpToPx(6);
     float DEFAULT_GLOW_SHADOW_SIZE = .92f;
     float DEFAULT_GLOW_SHADOW_SPREAD = .25f;
     float DEFAULT_GLOW_SHADOW_ALPHA = .14f;
@@ -44,6 +44,7 @@ public interface Constants {
     // line default properties
     long DEFAULT_DURATION = 1400;
     float DEFAULT_ASPECT = 2.4f;
+    float MAX_PARTICLE_TRANSLATION_ACCOUNTED_FOR_SIZE = Utils.dpToPx(70);
     int DEFAULT_LINE_STROKE_WIDTH = Utils.dpToPx(10);
 
 
