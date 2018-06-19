@@ -112,12 +112,12 @@ public class PresenterImpl implements Presenter {
 
     private long[] lineLDelays = new long[]{
             200,
-            450,
             650,
             850,
             950,
             1050,
-            1200,
+            1150,
+            1250,
             1350,
             1450,
             1550
