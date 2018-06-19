@@ -1,5 +1,5 @@
---
-#  <img alt="app_icon" src="assets/web_40.png" height="30" style="margin-bottom:-5px;"/>  &nbsp; SuperGlowingLoader
+----
+<h1>  <img alt="app_icon" src="assets/web_40.png" height="30" style="margin-bottom:-5px;"/>  &nbsp; SuperGlowingLoader</h1>
 
 [![platform](https://img.shields.io/badge/platform-Android-yellow.svg)](https://www.android.com)
 [![License](https://img.shields.io/badge/license-Apache%202-4EB1BA.svg?style=flat-square)](https://www.apache.org/licenses/LICENSE-2.0.html)
@@ -10,17 +10,18 @@
 <p style="color:#323232; font-size:18px">A completely customisable and beautiful indeterminate Progress View for Android. With over 30 parameters that can be changed, this loader can be modified to be unique and match your app's theme 🤘</p>
 
 
---
+-----
 
 <br>
 
 ![Showcase Video](assets/main_cover.gif)
 <br>
---
+
+----
 
 
 
-# Demo App
+<h1>Demo App</h1>
 
 
 <p style="color:#424242; font-size:16px;">The demo app has an inbuilt control pannel. It lets you edit every parameter of the animation from within the demo. Its much more easier than seeing the change via changin code and running the demo. Try it and you'll find how easy and fast it is to design your own version.</p>
@@ -34,11 +35,12 @@
 ![Showcase Video](assets/banner_new.gif)
 </center>
 <br>
---
+
+----
 
 
 
-# Usage
+<h1>Usage</h1>
 
 - <span style="color:#111111; font-size:16px;"> Add `implementation 'com.surahul:superglowingloader:1.0.0'` to your `dependencies` in `build.gradle` file of your app module.
 </span>
@@ -110,22 +112,27 @@ For a complete implemantation and various customization, explore the [GlowingLoa
     
 ```
 <br>
---
-# Apps that use this library
+
+----
+
+<h1>Apps that use this library</h1>
 
 If you're using this library in your app and you'd like to list it here,  
 please let me know via [email](mailto:denhelp1@gmail.com) or [pull requests](https://github.com/surahul/SuperGlowingLoader/pulls) or [issues](https://github.com/surahul/SuperGlowingLoader/issues).
 
---
-# Contributions
+----
+
+<h1>Contributions</h1>
 
 Help me make this library better by contributing to the code. Any contributions are welcome!  
 
---
-# Developed By
+----
+
+<h1>Developed By</h1>
 
 * [Rahul Verma](https://www.facebook.com/iamsurahul) - [denhelp1@gmail.com](mailto:rv@videoder.com)
 
---
-# Thanks
---
+----
+
+<h1>Thanks</h1>
+----
