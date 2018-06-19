@@ -1,4 +1,4 @@
-----
+-
 <h1>  <img alt="app_icon" src="assets/web_40.png" height="30" style="margin-bottom:-5px;"/>  &nbsp; SuperGlowingLoader</h1>
 
 [![platform](https://img.shields.io/badge/platform-Android-yellow.svg)](https://www.android.com)
@@ -10,14 +10,14 @@
 <p style="color:#323232; font-size:18px">A completely customisable and beautiful indeterminate Progress View for Android. With over 30 parameters that can be changed, this loader can be modified to be unique and match your app's theme 🤘</p>
 
 
------
+
 
 <br>
 
 ![Showcase Video](assets/main_cover.gif)
 <br>
 
-----
+
 
 
 
@@ -36,7 +36,7 @@
 </center>
 <br>
 
-----
+
 
 
 
@@ -113,26 +113,26 @@ For a complete implemantation and various customization, explore the [GlowingLoa
 ```
 <br>
 
-----
+
 
 <h1>Apps that use this library</h1>
 
 If you're using this library in your app and you'd like to list it here,  
 please let me know via [email](mailto:denhelp1@gmail.com) or [pull requests](https://github.com/surahul/SuperGlowingLoader/pulls) or [issues](https://github.com/surahul/SuperGlowingLoader/issues).
 
-----
+
 
 <h1>Contributions</h1>
 
 Help me make this library better by contributing to the code. Any contributions are welcome!  
 
-----
+
 
 <h1>Developed By</h1>
 
 * [Rahul Verma](https://www.facebook.com/iamsurahul) - [denhelp1@gmail.com](mailto:rv@videoder.com)
 
-----
+
 
 <h1>Thanks</h1>
-----
+
