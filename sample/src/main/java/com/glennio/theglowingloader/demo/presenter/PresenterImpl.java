@@ -55,7 +55,6 @@ public class PresenterImpl implements Presenter {
             0XFFEF5350,
             0XFFEC407A,
             0XFFAB47BC,
-            Color.WHITE,
             0XFF9575CD,
             0XFF7986CB,
             0XFF7986CB,
@@ -63,17 +62,21 @@ public class PresenterImpl implements Presenter {
             Color.WHITE,
             0XFF26C6DA,
             0XFF26A69A,
+            Color.BLACK,
             0XFF81C784,
             0XFFAED581,
             0XFFDCE775,
-            Color.WHITE,
+            Color.BLACK,
             0XFFFFF176,
             0XFFFFCA28,
             0XFF8D6E63,
-            Color.WHITE,
             0XFFBDBDBD,
             0XFF90A4AE,
+            0XFF3E2723,
             0XFF7e3ff2,
+            Color.BLACK,
+            0XFF494852
+
 
     };
 
@@ -90,6 +93,8 @@ public class PresenterImpl implements Presenter {
             0XFFE0F2F1,
             0XFFa091d,
             0XFF263238,
+            0XFFebe3ce,
+
     };
 
     private float[] lineLengths = new float[]{
@@ -97,14 +102,25 @@ public class PresenterImpl implements Presenter {
             com.glennio.glowingloaderlib.Utils.dpToPx(70),
             com.glennio.glowingloaderlib.Utils.dpToPx(60),
             com.glennio.glowingloaderlib.Utils.dpToPx(50),
-            com.glennio.glowingloaderlib.Utils.dpToPx(40)
+            com.glennio.glowingloaderlib.Utils.dpToPx(40),
+            com.glennio.glowingloaderlib.Utils.dpToPx(30),
+            com.glennio.glowingloaderlib.Utils.dpToPx(30),
+            com.glennio.glowingloaderlib.Utils.dpToPx(20),
+            com.glennio.glowingloaderlib.Utils.dpToPx(20),
+            com.glennio.glowingloaderlib.Utils.dpToPx(10)
     };
+
     private long[] lineLDelays = new long[]{
             200,
             650,
             850,
-            1000,
-            1200
+            950,
+            1050,
+            1150,
+            1250,
+            1350,
+            1450,
+            1550
     };
 
 
@@ -173,8 +189,8 @@ public class PresenterImpl implements Presenter {
 
 
         ColorArrayPickerViewModel refreshRippleColorViewModel = new ColorArrayPickerViewModel(ID_RIPPLE_COLOR, getString(context, R.string.ripple_color), Constants.DEFAULT_RIPPLE_COLOR);
-        refreshRippleColorViewModel.setShowRightIcon(false);
-        refreshRippleColorViewModel.setLeftIconResource(R.drawable.ic_refresh);
+        refreshRippleColorViewModel.setShowLeftIcon(false);
+        refreshRippleColorViewModel.setRightIconResource(R.drawable.ic_refresh);
         refreshRippleColorViewModel.setShowValueText(false);
         adapterDataItems.add(new AdapterDataItem(refreshRippleColorViewModel));
         adapterDataItems.add(new AdapterDataItem(new SimpleSeekBarControlViewModel(ID_RIPPLE_ALPHA, getString(context, R.string.ripple_opacity), .2f, 1f, Constants.DEFAULT_RIPPLE_ALPHA)));
@@ -183,8 +199,8 @@ public class PresenterImpl implements Presenter {
 
 
         ColorArrayPickerViewModel refreshBackgroundColor = new ColorArrayPickerViewModel(ID_BACKGROUND_COLOR, getString(context, R.string.backgroundColor), context.getResources().getColor(R.color.colorPrimary));
-        refreshBackgroundColor.setShowRightIcon(false);
-        refreshBackgroundColor.setLeftIconResource(R.drawable.ic_refresh);
+        refreshBackgroundColor.setShowLeftIcon(false);
+        refreshBackgroundColor.setRightIconResource(R.drawable.ic_refresh);
         refreshBackgroundColor.setShowValueText(false);
         adapterDataItems.add(new AdapterDataItem(refreshBackgroundColor));
 

@@ -32,9 +32,9 @@ public class ColorArrayControlViewHolder extends RecyclerView.ViewHolder impleme
         this.titleTextView = itemView.findViewById(R.id.text_view);
         this.valueTextView = itemView.findViewById(R.id.value_tv);
         this.colorArrayDisplayerView = itemView.findViewById(R.id.color_array);
-        leftIcon = itemView.findViewById(R.id.add);
+        leftIcon = itemView.findViewById(R.id.remove);
         leftIcon.setOnClickListener(this);
-        rightIcon = itemView.findViewById(R.id.remove);
+        rightIcon = itemView.findViewById(R.id.add);
         rightIcon.setOnClickListener(this);
     }
 
