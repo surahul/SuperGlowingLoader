@@ -1,4 +1,3 @@
--
 <h1>  <img alt="app_icon" src="assets/web_40.png" height="30" style="margin-bottom:-5px;"/>  &nbsp; SuperGlowingLoader</h1>
 
 [![platform](https://img.shields.io/badge/platform-Android-yellow.svg)](https://www.android.com)
@@ -15,6 +14,7 @@
 <br>
 
 ![Showcase Video](assets/main_cover.gif)
+
 <br>
 
 
@@ -111,7 +111,7 @@ For a complete implemantation and various customization, explore the [GlowingLoa
     
     
 ```
-<br>
+
 
 
 
