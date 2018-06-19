@@ -49,8 +49,14 @@ public class ColorArrayControlViewHolder extends RecyclerView.ViewHolder impleme
         rightIcon.setVisibility(colorArrayPickerViewModel.isShowRightIcon() ? View.VISIBLE : View.GONE);
         if (colorArrayPickerViewModel.getLeftIconResource() != -1)
             leftIcon.setImageResource(colorArrayPickerViewModel.getLeftIconResource());
+        else {
+            leftIcon.setImageResource(R.drawable.ic_remove);
+        }
         if (colorArrayPickerViewModel.getRightIconResource() != -1)
             rightIcon.setImageResource(colorArrayPickerViewModel.getRightIconResource());
+        else {
+            rightIcon.setImageResource(R.drawable.ic_add);
+        }
         valueTextView.setVisibility(colorArrayPickerViewModel.isShowValueText() ? View.VISIBLE : View.GONE);
     }
 

@@ -129,8 +129,19 @@ public class GlowingLoaderView extends View implements BaseDrawerCallback, LineP
     }
 
     public void createAndStart() {
+        checkForDurationMinValueEqualToLongestSpecDelay();
         createDrawers();
         start();
+    }
+
+    private void checkForDurationMinValueEqualToLongestSpecDelay() {
+        if(lineSpecs!=null){
+            for (LineSpec lineSpec : lineSpecs) {
+                if (lineSpec.getStartDelay() >= duration) {
+                    duration = lineSpec.getStartDelay() + 100;
+                }
+            }
+        }
     }
 
     private void createDrawers() {
@@ -165,6 +176,7 @@ public class GlowingLoaderView extends View implements BaseDrawerCallback, LineP
             lineDrawers.clear();
         }
         lineDrawers = null;
+        invalidateBlurMasks();
     }
 
 
@@ -414,8 +426,9 @@ public class GlowingLoaderView extends View implements BaseDrawerCallback, LineP
 
 
     public void setDuration(long duration) {
-        this.duration = duration;
         cancel();
+        this.duration = duration;
+        createAndStart();
     }
 
     private void invalidateBlurMasks() {
@@ -502,9 +515,9 @@ public class GlowingLoaderView extends View implements BaseDrawerCallback, LineP
     }
 
     public void setLineSpecs(LineSpec[] lineSpecs) {
+        cancel();
         this.lineSpecs = lineSpecs;
-        invalidateBlurMasks();
-        invalidate();
+        createAndStart();
     }
 
     public void setParticleTypes(int[] particleTypes) {
