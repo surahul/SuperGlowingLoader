@@ -98,26 +98,26 @@ public class PresenterImpl implements Presenter {
     };
 
     private float[] lineLengths = new float[]{
-            com.glennio.glowingloaderlib.Utils.dpToPx(150),
+            com.glennio.glowingloaderlib.Utils.dpToPx(170),
+            com.glennio.glowingloaderlib.Utils.dpToPx(90),
             com.glennio.glowingloaderlib.Utils.dpToPx(70),
             com.glennio.glowingloaderlib.Utils.dpToPx(60),
             com.glennio.glowingloaderlib.Utils.dpToPx(50),
+            com.glennio.glowingloaderlib.Utils.dpToPx(50),
             com.glennio.glowingloaderlib.Utils.dpToPx(40),
-            com.glennio.glowingloaderlib.Utils.dpToPx(30),
-            com.glennio.glowingloaderlib.Utils.dpToPx(30),
+            com.glennio.glowingloaderlib.Utils.dpToPx(40),
             com.glennio.glowingloaderlib.Utils.dpToPx(20),
-            com.glennio.glowingloaderlib.Utils.dpToPx(20),
-            com.glennio.glowingloaderlib.Utils.dpToPx(10)
+            com.glennio.glowingloaderlib.Utils.dpToPx(20)
     };
 
     private long[] lineLDelays = new long[]{
             200,
+            450,
             650,
             850,
             950,
             1050,
-            1150,
-            1250,
+            1200,
             1350,
             1450,
             1550
