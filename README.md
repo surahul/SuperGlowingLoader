@@ -32,8 +32,11 @@
 <br>
 
 <center>
+    
 ![Showcase Video](assets/banner_new.gif)
+    
 </center>
+
 <br>
 
 
